@@ -3,30 +3,35 @@
 
 ## Write a short comment describing this function
 
+# similar to getMean, s = solve, solve function calculates the inverse of a matrix
+# setSolve, getSolve functions added.
+
 makeCacheMatrix <- function(x = matrix()) {
-    s <- NULL #inverse matrix value is null
-    set <- function(y) { #sets the matrix value to given value Y
+    s <- NULL 
+    set <- function(y) { 
         x <<- y
-        s <<- NULL #sets the inverse value to null
+        s <<- NULL
     }
-    get <- function() x #returns the matrix value X
-    setSolve <- function(inverse) s <<- inverse #sets inverse value to the given value
-    getSolve <- function() s #returns the inverse value 
+    get <- function() x 
+    setSolve <- function(inverse) s <<- inverse 
+    getSolve <- function() s
     list(set = set, get = get, setSolve = setSolve, getSolve = getSolve)
 }
 
 
 ## Write a short comment describing this function
+# first gets the inverse value (getSolve), if it exists, it loads the cached value and prints a message
+# else, if calculates the inverse (solve(mat)), and caches the result (setSolve)
 
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
-    s <- x$getSolve() #get the inverse value of X
-    if(!is.null(s)) { #if the value exists:
+    s <- x$getSolve()      
+    if(!is.null(s)) {     
         message("getting cached inverse matrix")
-        return(s) #get cached value and print the message
+        return(s)       
     }
-    mat <- x$get() #if not: set tha matrix value to mat
-    s <- solve(mat) #calculate the inverse of mat 
-    x$setSolve(s) #set (cache) the inverse value 
-    s #return the inverse
+    mat <- x$get()      
+    s <- solve(mat)      
+    x$setSolve(s)    
+    s       
 }
