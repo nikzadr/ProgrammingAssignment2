@@ -1,10 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
-# similar to getMean, s = solve, solve function calculates the inverse of a matrix
-# setSolve, getSolve functions added.
+# This function is somewhat similar to getMean. Here s = solve, a function which calculates the inverse of a matrix.
+# setSolve, getSolve functions replaced setMean and getMean.
 
 makeCacheMatrix <- function(x = matrix()) {
     s <- NULL 
@@ -19,8 +14,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-# first gets the inverse value (getSolve), if it exists, it loads the cached value and prints a message
+# first gets the inverse value (getSolve), if the value exists, it loads the cached value and prints a message
 # else, if calculates the inverse (solve(mat)), and caches the result (setSolve)
 
 cacheSolve <- function(x, ...) {
